@@ -12,7 +12,7 @@ The dataset contains daily amount of rental bikes between years 2011 and 2012 in
 All we want to know is how much bikes we should prepare for the next week. To avoid the situation when the supply could not meet the demand.
 
 ### Architecture Diagram
-We upload data into S3. Then, we used Amazon Machine Learning for training model and prediction. All of the output will be stored into S3.
+We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning for training model and prediction. All of the output will be stored into S3.
 
 ![1.png](/images/1.png)
 
