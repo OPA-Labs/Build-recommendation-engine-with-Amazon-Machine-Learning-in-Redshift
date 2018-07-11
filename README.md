@@ -14,7 +14,7 @@ All we want to know is how much bikes we should prepare for the next week. To av
 ### Architecture Diagram
 We upload data into S3. Then, we used Amazon Machine Learning for training model and prediction. All of the output will be stored into S3.
 
-![1.jpg](/images/1.jpg)
+![1.png](/images/1.png)
 
 
 ## Prerequisites
