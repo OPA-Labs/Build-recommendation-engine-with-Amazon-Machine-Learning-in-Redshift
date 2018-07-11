@@ -208,7 +208,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 9.1.    Import bike data in Redshift's table, type the following commend into SQLWorkbench's statement.
 
-    copy bike FROM 's3://**bucket name**/day_part_two.csv' credentials 'aws_access_key_id=**Your-Access-KEY**;aws_secret_access_key=**Your-Secret-KEY**' csv IGNOREHEADER 1;
+    copy bike FROM 's3://bucket name/day_part_two.csv' credentials 'aws_access_key_id=Your-Access-KEY;aws_secret_access_key=Your-Secret-KEY' csv IGNOREHEADER 1;
 
 >Please noticed that **bucket name** should be copy from your own AWS account's S3 bucket. For example my bucket is **ecv-workshop-your_name**.
 
