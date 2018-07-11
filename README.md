@@ -60,7 +60,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 * For Database port, type **5439**.
 * For Master User Name, type **root**.
 * For Master User Password, type **Redshift123**.
-* Confirm the password
+* Confirm the password.
 
 2.4.    Click **Continue**.
 
