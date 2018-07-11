@@ -94,7 +94,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 3.4.    For the filter, type **ami-f4ca93e3**, then click **search**.
 
-![2.jpg](/images/2.jpg)
+![3.png](/images/3.png)
 
 3.5.    Choose images, then click **Launch**.
 
