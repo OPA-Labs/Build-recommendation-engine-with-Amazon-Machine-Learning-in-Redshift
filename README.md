@@ -210,7 +210,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
     copy bike FROM 's3://bucket name/day_part_two.csv' credentials 'aws_access_key_id=Your-Access-KEY;aws_secret_access_key=Your-Secret-KEY' csv IGNOREHEADER 1;
 
->Please noticed that **bucket name** should be copy from your own AWS account's S3 bucket. For example my bucket is **ecv-workshop-your_name**.
+>Please noticed to change **bucket name**, **Your-Access-KEY** and **Your-Secret-KEY**. The access key and secret key is security credentials which get from eCloudvalley.
 
 9.2.    After submit the SQL commend, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully' in SQL Workbench's message.
 
