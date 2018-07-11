@@ -62,7 +62,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 * For Master User Password, type **Redshift123**.
 * Confirm the password.
 
->Copy the Cluster identifier, Database name, User Master Name and Password in text editor, you will used later.
+>Copy the Cluster identifier, Database name, User Master Name and Password in text editor, we will use later.
 
 2.4.    Click **Continue**.
 
