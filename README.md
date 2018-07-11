@@ -54,7 +54,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 2.2.    Click **Launch Cluster**.
 
-2.3.    In the cluster details part,
+2.3.    In the Cluster details part,
 * For Cluster identifier, type **redshiftdemo**.
 * For Database name, type **redshiftdemo**.
 * For Database port, type **5439**.
