@@ -21,7 +21,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 >Make sure your are in US East (N. Virginia), which short name is us-east-1.
 
->Prepare the IAM credential.
+>Prepare the IAM security credential.
 
 >Download the file **day_part_two.csv**.
 
@@ -159,7 +159,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 6.1. On the service menu, click **S3**, Click **Create Bucket**.
 
-6.2. For Bucket Name, type **Unique Name**.
+6.2. For Bucket Name, type **ecv-workshop-your_Name**.
 
 6.3. For Region, choose **US East (N. Virginia)**, Click **Create**.
 
@@ -169,17 +169,21 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ### Establish a connection with Redshift cluster through SQL Workbench
 
-7.1.    Click SQLWorkbenchJ which in the **workshop folder**.
+7.1.    Back to RDP client, click SQLWorkbenchJ which in the **workshop** folder.
 
 7.2.    About **select connect profile**, for URL, type **jdbc:redshift://REDSHIFT ENDPOINT:5439/redshiftdemo**.
 
-7.3.    For Username, type the username which you created in the AWS console.
+>**REDSHIFT ENDPOINT** showed on AWS Redshift console.
 
-7.4.    For Password, type the username which you created in the AWS console.
+7.3.    For Username, type the username which you created in the AWS console. For example: root.
+
+7.4.    For Password, type the username which you created in the AWS console. For example: Redshift123.
 
 7.5.    Select **AutoCommit**.
 
 7.6.    Click **OK**.
+
+![4.png](/images/4.png)
 
 >Congrats! You have established a connection with Redshift cluster. Continue the following guide, you will create a table and import reference data into Redshift.
 
@@ -187,17 +191,30 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 8.1.    Create a table in Redshift, type the following commend into SQLWorkbench's statement.
 
+    create table bike(
+    season varchar(10), 
+    mnth varchar(10), 
+    weekday varchar(10), 
+    workingday varchar(10), 
+    weathersit varchar(10),
+    cnt int 
+    );
 
+8.2.    Then you will see **Table bike created** in SQL Workbench's messages.
+
+![5.png](/images/5.png)
 
 ### Import data in Redshift
 
 9.1.    Import bike data in Redshift's table, type the following commend into SQLWorkbench's statement.
 
-    copy bike
+    copy bike FROM 's3://**bucket name**/day_part_two.csv' credentials 'aws_access_key_id=**Your-Access-KEY**;aws_secret_access_key=**Your-Secret-KEY**' csv IGNOREHEADER 1;
 
->Please noticed that bucket name should be copy from your own AWS account's S3 bucket. For example my bucket is **aws-ecv-seminar**.
+>Please noticed that **bucket name** should be copy from your own AWS account's S3 bucket. For example my bucket is **ecv-workshop-your_name**.
 
 9.2.    After submit the SQL commend, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully' in SQL Workbench's message.
+
+![6.png](/images/6.png)
 
 > Congrats! You have completed the Redshift part as a data source. Let's move to next section to learn how to use Amazon Machine Learning.
 
