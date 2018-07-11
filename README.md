@@ -100,7 +100,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 3.6.    For the instance type, choose **t2.small**.
 
-3.7.    Click **Next: Configure Instance Detail**.
+3.7.    Click **Next: Configure Instance Details**.
 
 3.8.    For network, keep the setting as default.
 
@@ -110,15 +110,15 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 3.11.   Click **Next: Tag Instance**.
 
-3.12.   For tag instance, type values as **Workshop**.
+3.12.   For tag instance, click **Add Tag**, type Key as **Name**, values as **Workshop**.
 
 3.13.   Click **Next: Configure Security Group**.
 
-3.14.   For configure Security Group, **Select an existing security group: workshop-sg**.
+3.14.   For configure Security Group, **Select an existing security group**, choose **workshop-sg**.
 
 3.15.   Click **Review and Launch**.
 
-3.16.   For selecting an existing key pair part, select **proceed without key**.
+3.16.   For selecting an existing key pair part, select **proceed without a key pair**.
 
 3.17.   Select yes about **I acknowledge that I have access to the selected private key file, and that without this file, I wont't be able to log into my instance**.
 
