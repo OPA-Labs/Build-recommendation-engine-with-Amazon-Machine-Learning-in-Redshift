@@ -96,7 +96,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ![3.png](/images/3.png)
 
-3.5.    Choose images, then click **Launch**.
+3.5.    Choose images, then click **Action** and **Launch**.
 
 3.6.    For the instance type, choose **t2.small**.
 
