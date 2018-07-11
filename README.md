@@ -75,7 +75,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 2.7.    In Additional configuration part,
 * For Choose a VPC, select **default VPC**.
-* ForVPC Security Groups, choose **workshop-sg** which you created before.
+* For VPC Security Groups, choose **workshop-sg** which you created before.
 
 2.8.    Click **Continue**.
 
