@@ -212,7 +212,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 >Please noticed to change **bucket name**, **Your-Access-KEY** and **Your-Secret-KEY**. The access key and secret key is security credentials which get from eCloudvalley.
 
-9.2.    After submit the SQL commend, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully' in SQL Workbench's message.
+9.2.    After submit the SQL commend, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully** in SQL Workbench's message.
 
 ![6.png](/images/6.png)
 
