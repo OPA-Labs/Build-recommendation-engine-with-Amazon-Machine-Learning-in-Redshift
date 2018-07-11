@@ -46,6 +46,8 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 1.9.    Click **Create**.
 
+![2.png](/images/2.png)
+
 ### Create a Amazon Redshift Cluster
 
 2.1.    On the service menu, click **Redshift**.
