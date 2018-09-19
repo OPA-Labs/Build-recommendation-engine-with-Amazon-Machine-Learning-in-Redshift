@@ -3,12 +3,12 @@ Build recommendation engine with Amazon Machine Learning in Redshift
 
 ## Introduction
 ### Overview
-In this lab, you will build a smart solution using [Amazon Redshift](https://aws.amazon.com/redshift/) and [Amazon Machine Learning](https://aws.amazon.com/machine-learning/) that predict rental bikes for Capital bikeshare system.
+In this lab, you will build a smart solution using [Amazon Redshift](https://aws.amazon.com/redshift/) and [Amazon Machine Learning](https://aws.amazon.com/machine-learning/) that predict rental bikes for Capital bike-share system.
 
 ## About this lab
 ### Scenario
 
-The dataset contains daily amount of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.
+The dataset contains the daily amount of rental bikes between years 2011 and 2012 in the Capital bike-share system with the corresponding weather and seasonal information.
 All we want to know is how much bikes we should prepare for the next week. To avoid the situation when the supply could not meet the demand.
 
 ### Architecture Diagram
@@ -19,7 +19,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ## Prerequisites
 
->Make sure your are in US East (N. Virginia), which short name is us-east-1.
+>Make sure you are in US East (N. Virginia), which short name is us-east-1.
 
 >Prepare the IAM security credential.
 
@@ -28,9 +28,9 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 ## Lab tutorial
 ### Create a Security Group
 
-1.1. 	On the service menu, click **EC2**.
+1.1.     On the service menu, click **EC2**.
 
-1.2. 	On the left panel, click **Security Group**, and click **Create Security Group**.
+1.2.     On the left panel, click **Security Group**, and click **Create Security Group**.
 
 1.3.    For Security group name, type **workshop-sg**.
 
@@ -48,7 +48,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ![2.png](/images/2.png)
 
-### Create a Amazon Redshift Cluster
+### Create an Amazon Redshift Cluster
 
 2.1.    On the service menu, click **Redshift**.
 
@@ -62,7 +62,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 * For Master User Password, type **Redshift123**.
 * Confirm the password.
 
->Copy the Cluster identifier, Database name, User Master Name and Password in text editor, we will use later.
+>Copy the Cluster identifier, Database name, User Master Name, and Password in the text editor, we will use later.
 
 2.4.    Click **Continue**.
 
@@ -102,7 +102,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 3.7.    Click **Next: Configure Instance Details**.
 
-3.8.    For network, keep the setting as default.
+3.8.    For the network, keep the setting as default.
 
 3.9.    Click **Next: Add storage**.
 
@@ -120,7 +120,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 3.16.   For selecting an existing key pair part, select **proceed without a key pair**.
 
-3.17.   Select yes about **I acknowledge that I have access to the selected private key file, and that without this file, I wont't be able to log into my instance**.
+3.17.   Select yes about **I acknowledge that I have access to the selected private key file and that without this file, I won't be able to log into my instance**.
 
 3.18.   Click **Launch**.
 
@@ -128,7 +128,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 >if you are running Mac OS X, you can download the CoRD RDS client: http://cord.sourceforge.net/
 
-4.1.    Open your RDP client, for server, paste in the Public DNS of EC2 in the blank.
+4.1.    Open your RDP client, for the server, paste in the Public DNS of EC2 in the blank.
 
 4.2.    Click **Connect**.
 
@@ -140,7 +140,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ### Connect to your instance (RDP Connect for Windows Users)
 
-5.1.    Open your RDP client, for server, paste in the Public DNS of EC2 in the blank.
+5.1.    Open your RDP client, for the server, paste in the Public DNS of EC2 in the blank.
 
 5.2.    Click **Connect**.
 
@@ -155,7 +155,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 >After you login into EC2 which generated from AMI, we can use SQL Workbench as a connection tool in EC2. Continue the lab you will learn how to use SQL Workbench to connect to Redshift and import data into Redshift.
 
 ### Upload a file to S3 bucket
->Before connect with SQL Workbench, we need to upload dataset into S3 bucket. Please following the guide to continue the lab.
+>Before connect with SQL Workbench, we need to upload dataset into an S3 bucket. Please follow the guide to continue the lab.
 
 6.1. On the service menu, click **S3**, Click **Create Bucket**.
 
@@ -189,7 +189,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ### Create a table in Redshift via SQLWorkbench
 
-8.1.    Create a table in Redshift, type the following commend into SQLWorkbench's statement.
+8.1.    Create a table in Redshift, type the following command into SQLWorkbench's statement.
 
     create table bike(
     season varchar(10), 
@@ -206,25 +206,25 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 ### Import data in Redshift
 
-9.1.    Import bike data in Redshift's table, type the following commend into SQLWorkbench's statement.
+9.1.    Import bike data in Redshift's table, type the following command into SQLWorkbench's statement.
 
     copy bike FROM 's3://bucket name/day_part_two.csv' credentials 'aws_access_key_id=Your-Access-KEY;aws_secret_access_key=Your-Secret-KEY' csv IGNOREHEADER 1;
 
->Please noticed to change **bucket name**, **Your-Access-KEY** and **Your-Secret-KEY**. The access key and secret key is security credentials which get from eCloudvalley.
+>Please noticed to change **bucket name**, **Your-Access-KEY** and **Your-Secret-KEY**. The access key and the secret key is security credentials which get from eCloudvalley.
 
-9.2.    After submit the SQL commend, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully** in SQL Workbench's message.
+9.2.    After submitting the SQL command, you will see **Warnings: Load into table 'bike' completed. 731 record(s) loaded successfully. 0 rows affected. COPY executed successfully** in SQL Workbench's message.
 
 ![6.png](/images/6.png)
 
-> Congrats! You have completed the Redshift part as a data source. Let's move to next section to learn how to use Amazon Machine Learning.
+> Congrats! You have completed the Redshift part as a data source. Let's move to the next section to learn how to use Amazon Machine Learning.
 
 ### Create Model via Amazon Machine Learning
 
-10.1. 	On the service menu, click **Machine Learning**.
+10.1.     On the service menu, click **Machine Learning**.
 
-10.2. 	Click ‘Get Started’ and **Launch**.
+10.2.     Click ‘Get Started’ and **Launch**.
 
-10.3. 	For **where is your data**, choose **Redshift**.
+10.3.     For **where is your data**, choose **Redshift**.
 
 10.4.   For Cluster identifier, choose the redshift which you created.
 
@@ -246,20 +246,20 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 > Find the bucket which you created before, then create a folder which named output.
 
-10.11. 	For Datasource name, type **aml‐ver1**, Click **Verify**.
+10.11.     For Datasource name, type **aml‐ver1**, Click **Verify**.
 
 > Note: You will see ‘The validation is successful. To go to the next step, choose Continue’
 
-10.12. 	Click **Continue**.
+10.12.     Click **Continue**.
 
-10.13. 	In Schema part:
+10.13.     In Schema part:
 
-* About first line in the column name, click **yes** when you see the question: Does the first line in your CSV contain the column names?
-* For	Datatype,	choose	season/mnth/weekday/workingday/weathersit	as **Catagorical**
+* About the first line in the column name, click **yes** when you see the question: Does the first line in your CSV contain the column names?
+* For    Datatype,    choose    season/mnth/weekday/workingday/weathersit    as **Categorical**
 * For Datatype, choose cnt as **Numetric**
 * Click ‘Continue’
 
-10.14. 	In Target part:
+10.14.     In Target part:
 
 * For target, choose **cnt** as target for prediction
 * Click **Continue**
@@ -279,7 +279,7 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 10.18. In Review part:
 
 * Click **Create ML Model**
-* For this moment, you will see the message said **status: Pending**, you can test this machine learning until the status go to **completed**.
+* For this moment, you will see the message said **status: Pending**, you can test this machine learning until the status goes to **completed**.
 
 ### Testing with Amazon Machine Learning
 
@@ -287,18 +287,18 @@ We used EC2 for import data into Redshift. Then, we used Amazon Machine Learning
 
 11.2. For the left panel, click **Try real-time predictions**
 
-* For season, you can type 1 to 4
+* For the season, you can type 1 to 4
 * For mnth, you can type 1 to 12
 * For weekday, you can type 1 to 7
 * For workingday, you can type 1 to 2
 * For weathersit, you can type 1 to 4
 
-11.3. Then, click **create prediction**, you will see the predict value in the right panel. 	
+11.3. Then, click **create prediction**, you will see the predictive value in the right panel.     
 
 
 ## Conclusion
 Congratulations! You now have learned how to:
 * Create a Redshift cluster, build Redshift table and load data from Amazon S3.
 * Create a Machine Learning Model
-* Train the Machine Learning Model, using historic data about rental bikes.
-* Predict the rental amount for the future sharebike system with S3 and Amazon Machine Learning
+* Train the Machine Learning Model, using historical data about rental bikes.
+* Predict the rental amount for the future share-bike system with S3 and Amazon Machine Learning
